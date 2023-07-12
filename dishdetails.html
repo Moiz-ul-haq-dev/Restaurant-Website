@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dish Details</title>
+</head>
+
+<body class="bg-gray-100">
+    <nav class="bg-gray-800 p-4 mb-2">
+        <div class="container-fluid mx-auto">
+            <a href="#" class="text-white text-xl font-semibold">Restaurant Website</a>
+            <div class="float-right text-white">
+                <a href="/home.html" class="px-2">Home</a>
+                <a href="/menu.html" class="px-2">Menu</a>
+                <a href="/about.html" class="px-2">About</a>
+                <a href="/index.html" class="px-2">LogOut</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 lg:flex justify-center items-center h-screen">
+        <div class="bg-white p-8 rounded shadow-lg">
+            <h2 class="text-2xl mb-2 text-center text-black" id="item-name">Item Name</h2>
+            <img src="" alt="Item Image" class="w-full h-96 object-cover rounded" id="item-image">
+            <p class="text-center my-3 text-black" id="item-desc">Item Description</p>
+            <p class="text-center my-3 text-black" id="item-price">Price: $10.00</p>
+        </div>
+    </main>
+    
+
+    <script>
+        // Retrieve the item details from the URL query parameters
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const itemName = urlParams.get('name');
+        const itemDesc = urlParams.get('desc');
+        const itemImg = urlParams.get('img');
+        const itemPrice = urlParams.get('price');
+
+
+        // Update the HTML elements with the item details
+        const itemNameElement = document.getElementById('item-name');
+        const itemDescElement = document.getElementById('item-desc');
+        const itemImgElement = document.getElementById('item-image');
+        const itemPriceElement = document.getElementById('item-price');
+        itemNameElement.textContent = itemName;
+        itemDescElement.textContent = itemDesc;
+        itemImgElement.src = itemImg;
+        itemPriceElement.textContent = itemPrice;
+    </script>
+</body>
+
+</html>
